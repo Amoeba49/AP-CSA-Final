@@ -1,0 +1,159 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"build" : "dependencies",
+					"childIndexes" : 
+					[
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-dependencies-Debug-213773dd22be3796fa39.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "dependencies"
+				},
+				{
+					"build" : "dependencies/GLFW",
+					"childIndexes" : 
+					[
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-dependencies.GLFW-Debug-b0cdd419539320bfb34a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "dependencies/GLFW",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "dependencies/GLFW/src",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-dependencies.GLFW.src-Debug-0e08927d7d0e8d6d36e0.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 1,
+					"source" : "dependencies/GLFW/src",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "OpenGL",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2,
+						3
+					],
+					"name" : "GLFW",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Engine::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Engine-Debug-80c1d8242cb853b2dfc1.json",
+					"name" : "Engine",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenGL::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenGL-Debug-f5411dfc8bcb133732c0.json",
+					"name" : "OpenGL",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "glfw::@5b66083ff58f70ea9d50",
+					"jsonFile" : "target-glfw-Debug-2375759454df7a388910.json",
+					"name" : "glfw",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "uninstall::@2f138bb55bb0bc551133",
+					"jsonFile" : "target-uninstall-Debug-07a6bf4f3e7e0315fa04.json",
+					"name" : "uninstall",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/andru/IdeaProjects/GameEngine/src/cpp/cmake-build-debug-visual-studio",
+		"source" : "C:/Users/andru/IdeaProjects/GameEngine/src/cpp"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
