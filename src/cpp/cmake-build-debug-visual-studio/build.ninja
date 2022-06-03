@@ -85,6 +85,24 @@ build CMakeFiles\Engine.dir\model.c.obj: C_COMPILER__Engine_Debug C$:\Users\andr
   TARGET_COMPILE_PDB = CMakeFiles\Engine.dir\
   TARGET_PDB = ..\build\cpp\Engine.pdb
 
+build CMakeFiles\Engine.dir\matrix.c.obj: C_COMPILER__Engine_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\matrix.c || cmake_object_order_depends_target_Engine
+  DEFINES = -DEngine_EXPORTS
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include
+  OBJECT_DIR = CMakeFiles\Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles\Engine.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Engine.dir\
+  TARGET_PDB = ..\build\cpp\Engine.pdb
+
+build CMakeFiles\Engine.dir\vector.c.obj: C_COMPILER__Engine_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\vector.c || cmake_object_order_depends_target_Engine
+  DEFINES = -DEngine_EXPORTS
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include
+  OBJECT_DIR = CMakeFiles\Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles\Engine.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Engine.dir\
+  TARGET_PDB = ..\build\cpp\Engine.pdb
+
 
 # =============================================================================
 # Link build statements for SHARED_LIBRARY target Engine
@@ -93,7 +111,7 @@ build CMakeFiles\Engine.dir\model.c.obj: C_COMPILER__Engine_Debug C$:\Users\andr
 #############################################
 # Link the shared library ..\build\cpp\Engine.dll
 
-build ..\build\cpp\Engine.dll ..\build\cpp\Engine.lib: C_SHARED_LIBRARY_LINKER__Engine_Debug CMakeFiles\Engine.dir\Engine.c.obj CMakeFiles\Engine.dir\GLAD\src\glad.c.obj CMakeFiles\Engine.dir\shader.c.obj CMakeFiles\Engine.dir\model.c.obj | ..\build\cpp\glfw3.lib || ..\build\cpp\glfw3.lib
+build ..\build\cpp\Engine.dll ..\build\cpp\Engine.lib: C_SHARED_LIBRARY_LINKER__Engine_Debug CMakeFiles\Engine.dir\Engine.c.obj CMakeFiles\Engine.dir\GLAD\src\glad.c.obj CMakeFiles\Engine.dir\shader.c.obj CMakeFiles\Engine.dir\model.c.obj CMakeFiles\Engine.dir\matrix.c.obj CMakeFiles\Engine.dir\vector.c.obj | ..\build\cpp\glfw3.lib || ..\build\cpp\glfw3.lib
   LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL
   LINK_LIBRARIES = ..\build\cpp\glfw3.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -147,6 +165,22 @@ build CMakeFiles\OpenGL.dir\model.c.obj: C_COMPILER__OpenGL_Debug C$:\Users\andr
   TARGET_COMPILE_PDB = CMakeFiles\OpenGL.dir\
   TARGET_PDB = ..\build\cpp\OpenGL.pdb
 
+build CMakeFiles\OpenGL.dir\matrix.c.obj: C_COMPILER__OpenGL_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\matrix.c || cmake_object_order_depends_target_OpenGL
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include
+  OBJECT_DIR = CMakeFiles\OpenGL.dir
+  OBJECT_FILE_DIR = CMakeFiles\OpenGL.dir
+  TARGET_COMPILE_PDB = CMakeFiles\OpenGL.dir\
+  TARGET_PDB = ..\build\cpp\OpenGL.pdb
+
+build CMakeFiles\OpenGL.dir\vector.c.obj: C_COMPILER__OpenGL_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\vector.c || cmake_object_order_depends_target_OpenGL
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include
+  OBJECT_DIR = CMakeFiles\OpenGL.dir
+  OBJECT_FILE_DIR = CMakeFiles\OpenGL.dir
+  TARGET_COMPILE_PDB = CMakeFiles\OpenGL.dir\
+  TARGET_PDB = ..\build\cpp\OpenGL.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target OpenGL
@@ -155,7 +189,7 @@ build CMakeFiles\OpenGL.dir\model.c.obj: C_COMPILER__OpenGL_Debug C$:\Users\andr
 #############################################
 # Link the executable ..\build\cpp\OpenGL.exe
 
-build ..\build\cpp\OpenGL.exe: C_EXECUTABLE_LINKER__OpenGL_Debug CMakeFiles\OpenGL.dir\Engine.c.obj CMakeFiles\OpenGL.dir\GLAD\src\glad.c.obj CMakeFiles\OpenGL.dir\shader.c.obj CMakeFiles\OpenGL.dir\model.c.obj | ..\build\cpp\glfw3.lib || ..\build\cpp\glfw3.lib
+build ..\build\cpp\OpenGL.exe: C_EXECUTABLE_LINKER__OpenGL_Debug CMakeFiles\OpenGL.dir\Engine.c.obj CMakeFiles\OpenGL.dir\GLAD\src\glad.c.obj CMakeFiles\OpenGL.dir\shader.c.obj CMakeFiles\OpenGL.dir\model.c.obj CMakeFiles\OpenGL.dir\matrix.c.obj CMakeFiles\OpenGL.dir\vector.c.obj | ..\build\cpp\glfw3.lib || ..\build\cpp\glfw3.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = ..\build\cpp\glfw3.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -364,8 +398,8 @@ build dependencies\GLFW\CMakeFiles\uninstall | ${cmake_ninja_workdir}dependencie
 build cmake_object_order_depends_target_glfw: phony || dependencies\GLFW\src\CMakeFiles\glfw.dir
 
 build dependencies\GLFW\src\CMakeFiles\glfw.dir\context.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\context.c || cmake_object_order_depends_target_glfw
-  DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
   INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
   OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
@@ -373,8 +407,8 @@ build dependencies\GLFW\src\CMakeFiles\glfw.dir\context.c.obj: C_COMPILER__glfw_
   TARGET_PDB = ..\build\cpp\glfw3.pdb
 
 build dependencies\GLFW\src\CMakeFiles\glfw.dir\init.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\init.c || cmake_object_order_depends_target_glfw
-  DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
   INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
   OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
@@ -382,8 +416,8 @@ build dependencies\GLFW\src\CMakeFiles\glfw.dir\init.c.obj: C_COMPILER__glfw_Deb
   TARGET_PDB = ..\build\cpp\glfw3.pdb
 
 build dependencies\GLFW\src\CMakeFiles\glfw.dir\input.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\input.c || cmake_object_order_depends_target_glfw
-  DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
   INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
   OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
@@ -391,8 +425,17 @@ build dependencies\GLFW\src\CMakeFiles\glfw.dir\input.c.obj: C_COMPILER__glfw_De
   TARGET_PDB = ..\build\cpp\glfw3.pdb
 
 build dependencies\GLFW\src\CMakeFiles\glfw.dir\monitor.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\monitor.c || cmake_object_order_depends_target_glfw
-  DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
+  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
+  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
+  TARGET_PDB = ..\build\cpp\glfw3.pdb
+
+build dependencies\GLFW\src\CMakeFiles\glfw.dir\platform.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\platform.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
   INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
   OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
@@ -400,8 +443,8 @@ build dependencies\GLFW\src\CMakeFiles\glfw.dir\monitor.c.obj: C_COMPILER__glfw_
   TARGET_PDB = ..\build\cpp\glfw3.pdb
 
 build dependencies\GLFW\src\CMakeFiles\glfw.dir\vulkan.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\vulkan.c || cmake_object_order_depends_target_glfw
-  DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
   INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
   OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
@@ -409,71 +452,8 @@ build dependencies\GLFW\src\CMakeFiles\glfw.dir\vulkan.c.obj: C_COMPILER__glfw_D
   TARGET_PDB = ..\build\cpp\glfw3.pdb
 
 build dependencies\GLFW\src\CMakeFiles\glfw.dir\window.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\window.c || cmake_object_order_depends_target_glfw
-  DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
-  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
-  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = ..\build\cpp\glfw3.pdb
-
-build dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_init.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\win32_init.c || cmake_object_order_depends_target_glfw
-  DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
-  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
-  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = ..\build\cpp\glfw3.pdb
-
-build dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_joystick.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\win32_joystick.c || cmake_object_order_depends_target_glfw
-  DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
-  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
-  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = ..\build\cpp\glfw3.pdb
-
-build dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_monitor.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\win32_monitor.c || cmake_object_order_depends_target_glfw
-  DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
-  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
-  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = ..\build\cpp\glfw3.pdb
-
-build dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_time.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\win32_time.c || cmake_object_order_depends_target_glfw
-  DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
-  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
-  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = ..\build\cpp\glfw3.pdb
-
-build dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_thread.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\win32_thread.c || cmake_object_order_depends_target_glfw
-  DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
-  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
-  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = ..\build\cpp\glfw3.pdb
-
-build dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_window.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\win32_window.c || cmake_object_order_depends_target_glfw
-  DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
-  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
-  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = ..\build\cpp\glfw3.pdb
-
-build dependencies\GLFW\src\CMakeFiles\glfw.dir\wgl_context.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\wgl_context.c || cmake_object_order_depends_target_glfw
-  DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
   INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
   OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
@@ -481,8 +461,8 @@ build dependencies\GLFW\src\CMakeFiles\glfw.dir\wgl_context.c.obj: C_COMPILER__g
   TARGET_PDB = ..\build\cpp\glfw3.pdb
 
 build dependencies\GLFW\src\CMakeFiles\glfw.dir\egl_context.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\egl_context.c || cmake_object_order_depends_target_glfw
-  DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
   INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
   OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
@@ -490,8 +470,116 @@ build dependencies\GLFW\src\CMakeFiles\glfw.dir\egl_context.c.obj: C_COMPILER__g
   TARGET_PDB = ..\build\cpp\glfw3.pdb
 
 build dependencies\GLFW\src\CMakeFiles\glfw.dir\osmesa_context.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\osmesa_context.c || cmake_object_order_depends_target_glfw
-  DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
+  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
+  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
+  TARGET_PDB = ..\build\cpp\glfw3.pdb
+
+build dependencies\GLFW\src\CMakeFiles\glfw.dir\null_init.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\null_init.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
+  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
+  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
+  TARGET_PDB = ..\build\cpp\glfw3.pdb
+
+build dependencies\GLFW\src\CMakeFiles\glfw.dir\null_monitor.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\null_monitor.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
+  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
+  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
+  TARGET_PDB = ..\build\cpp\glfw3.pdb
+
+build dependencies\GLFW\src\CMakeFiles\glfw.dir\null_window.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\null_window.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
+  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
+  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
+  TARGET_PDB = ..\build\cpp\glfw3.pdb
+
+build dependencies\GLFW\src\CMakeFiles\glfw.dir\null_joystick.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\null_joystick.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
+  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
+  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
+  TARGET_PDB = ..\build\cpp\glfw3.pdb
+
+build dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_module.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\win32_module.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
+  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
+  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
+  TARGET_PDB = ..\build\cpp\glfw3.pdb
+
+build dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_time.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\win32_time.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
+  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
+  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
+  TARGET_PDB = ..\build\cpp\glfw3.pdb
+
+build dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_thread.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\win32_thread.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
+  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
+  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
+  TARGET_PDB = ..\build\cpp\glfw3.pdb
+
+build dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_init.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\win32_init.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
+  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
+  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
+  TARGET_PDB = ..\build\cpp\glfw3.pdb
+
+build dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_joystick.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\win32_joystick.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
+  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
+  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
+  TARGET_PDB = ..\build\cpp\glfw3.pdb
+
+build dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_monitor.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\win32_monitor.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
+  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
+  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
+  TARGET_PDB = ..\build\cpp\glfw3.pdb
+
+build dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_window.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\win32_window.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
+  INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
+  OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
+  TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
+  TARGET_PDB = ..\build\cpp\glfw3.pdb
+
+build dependencies\GLFW\src\CMakeFiles\glfw.dir\wgl_context.c.obj: C_COMPILER__glfw_Debug C$:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src\wgl_context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /W3
   INCLUDES = -IC:\Users\andru\.jdks\openjdk-17\include -IC:\Users\andru\.jdks\openjdk-17\include\win32 -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\GLAD\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\glm\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\include -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src -IC:\Users\andru\IdeaProjects\GameEngine\src\cpp\cmake-build-debug-visual-studio\dependencies\GLFW\src
   OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
@@ -506,7 +594,7 @@ build dependencies\GLFW\src\CMakeFiles\glfw.dir\osmesa_context.c.obj: C_COMPILER
 #############################################
 # Link the static library ..\build\cpp\glfw3.lib
 
-build ..\build\cpp\glfw3.lib: C_STATIC_LIBRARY_LINKER__glfw_Debug dependencies\GLFW\src\CMakeFiles\glfw.dir\context.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\init.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\input.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\monitor.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\vulkan.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\window.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_init.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_joystick.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_monitor.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_time.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_thread.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_window.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\wgl_context.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\egl_context.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\osmesa_context.c.obj
+build ..\build\cpp\glfw3.lib: C_STATIC_LIBRARY_LINKER__glfw_Debug dependencies\GLFW\src\CMakeFiles\glfw.dir\context.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\init.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\input.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\monitor.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\platform.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\vulkan.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\window.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\egl_context.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\osmesa_context.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\null_init.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\null_monitor.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\null_window.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\null_joystick.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_module.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_time.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_thread.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_init.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_joystick.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_monitor.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\win32_window.c.obj dependencies\GLFW\src\CMakeFiles\glfw.dir\wgl_context.c.obj
   LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64
   OBJECT_DIR = dependencies\GLFW\src\CMakeFiles\glfw.dir
@@ -515,6 +603,12 @@ build ..\build\cpp\glfw3.lib: C_STATIC_LIBRARY_LINKER__glfw_Debug dependencies\G
   TARGET_COMPILE_PDB = dependencies\GLFW\src\CMakeFiles\glfw.dir\glfw.pdb
   TARGET_FILE = ..\build\cpp\glfw3.lib
   TARGET_PDB = ..\build\cpp\glfw3.pdb
+
+
+#############################################
+# Utility command for update_mappings
+
+build dependencies\GLFW\src\update_mappings: phony dependencies\GLFW\src\CMakeFiles\update_mappings
 
 
 #############################################
@@ -569,6 +663,14 @@ build dependencies\GLFW\src\CMakeFiles\install\local.util: CUSTOM_COMMAND depend
 
 build dependencies\GLFW\src\install\local: phony dependencies\GLFW\src\CMakeFiles\install\local.util
 
+
+#############################################
+# Custom command for dependencies\GLFW\src\CMakeFiles\update_mappings
+
+build dependencies\GLFW\src\CMakeFiles\update_mappings | ${cmake_ninja_workdir}dependencies\GLFW\src\CMakeFiles\update_mappings: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\andru\IdeaProjects\GameEngine\src\cpp\dependencies\GLFW\src && "C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" -P C:/Users/andru/IdeaProjects/GameEngine/src/cpp/dependencies/GLFW/CMake/GenerateMappings.cmake mappings.h.in mappings.h"
+  DESC = Updating gamepad mappings from upstream repository
+
 # =============================================================================
 # Target aliases.
 
@@ -585,6 +687,8 @@ build glfw: phony ..\build\cpp\glfw3.lib
 build glfw3.lib: phony ..\build\cpp\glfw3.lib
 
 build uninstall: phony dependencies\GLFW\uninstall
+
+build update_mappings: phony dependencies\GLFW\src\update_mappings
 
 # =============================================================================
 # Folder targets.
@@ -624,14 +728,14 @@ build dependencies\GLFW\src\all: phony ..\build\cpp\glfw3.lib
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ..\CMakeLists.txt ..\dependencies\CMakeLists.txt ..\dependencies\GLFW\CMakeLists.txt ..\dependencies\GLFW\CMake\modules\FindVulkan.cmake ..\dependencies\GLFW\cmake_uninstall.cmake.in ..\dependencies\GLFW\src\CMakeLists.txt ..\dependencies\GLFW\src\glfw3.pc.in ..\dependencies\GLFW\src\glfw3Config.cmake.in ..\dependencies\GLFW\src\glfw_config.h.in C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\BasicConfigVersion-SameMajorVersion.cmake.in C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakePackageConfigHelpers.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeRCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CheckCSourceCompiles.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CheckIncludeFile.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CheckLibraryExists.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindPackageMessage.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindThreads.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Internal\CheckSourceCompiles.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles\3.22.3\CMakeCCompiler.cmake CMakeFiles\3.22.3\CMakeCXXCompiler.cmake CMakeFiles\3.22.3\CMakeRCCompiler.cmake CMakeFiles\3.22.3\CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ..\CMakeLists.txt ..\dependencies\CMakeLists.txt ..\dependencies\GLFW\CMakeLists.txt ..\dependencies\GLFW\CMake\cmake_uninstall.cmake.in ..\dependencies\GLFW\CMake\glfw3.pc.in ..\dependencies\GLFW\CMake\glfw3Config.cmake.in ..\dependencies\GLFW\src\CMakeLists.txt C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\BasicConfigVersion-SameMajorVersion.cmake.in C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeDependentOption.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakePackageConfigHelpers.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeRCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CheckCSourceCompiles.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CheckIncludeFile.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CheckLibraryExists.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindPackageMessage.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindThreads.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\GNUInstallDirs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Internal\CheckSourceCompiles.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles\3.22.3\CMakeCCompiler.cmake CMakeFiles\3.22.3\CMakeCXXCompiler.cmake CMakeFiles\3.22.3\CMakeRCCompiler.cmake CMakeFiles\3.22.3\CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ..\CMakeLists.txt ..\dependencies\CMakeLists.txt ..\dependencies\GLFW\CMakeLists.txt ..\dependencies\GLFW\CMake\modules\FindVulkan.cmake ..\dependencies\GLFW\cmake_uninstall.cmake.in ..\dependencies\GLFW\src\CMakeLists.txt ..\dependencies\GLFW\src\glfw3.pc.in ..\dependencies\GLFW\src\glfw3Config.cmake.in ..\dependencies\GLFW\src\glfw_config.h.in C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\BasicConfigVersion-SameMajorVersion.cmake.in C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakePackageConfigHelpers.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeRCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CheckCSourceCompiles.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CheckIncludeFile.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CheckLibraryExists.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindPackageMessage.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindThreads.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Internal\CheckSourceCompiles.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles\3.22.3\CMakeCCompiler.cmake CMakeFiles\3.22.3\CMakeCXXCompiler.cmake CMakeFiles\3.22.3\CMakeRCCompiler.cmake CMakeFiles\3.22.3\CMakeSystem.cmake: phony
+build ..\CMakeLists.txt ..\dependencies\CMakeLists.txt ..\dependencies\GLFW\CMakeLists.txt ..\dependencies\GLFW\CMake\cmake_uninstall.cmake.in ..\dependencies\GLFW\CMake\glfw3.pc.in ..\dependencies\GLFW\CMake\glfw3Config.cmake.in ..\dependencies\GLFW\src\CMakeLists.txt C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\BasicConfigVersion-SameMajorVersion.cmake.in C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeDependentOption.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakePackageConfigHelpers.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeRCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CheckCSourceCompiles.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CheckIncludeFile.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CheckLibraryExists.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindPackageMessage.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindThreads.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\GNUInstallDirs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Internal\CheckSourceCompiles.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles\3.22.3\CMakeCCompiler.cmake CMakeFiles\3.22.3\CMakeCXXCompiler.cmake CMakeFiles\3.22.3\CMakeRCCompiler.cmake CMakeFiles\3.22.3\CMakeSystem.cmake: phony
 
 
 #############################################

@@ -12,6 +12,7 @@ uniform float time;
 
 void main()
 {
-	FragColor = vec4(ourColor.x, ourColor.y, ourColor.z, 1.0);
-	//FragColor = vec4(abs(noise1(ourTime)), abs(cos(ourTime)), abs(tan(ourTime)), 1.0);
+	FragColor = texture(texture1, TexCoord);
+	//FragColor = vec4(ourColor.x, ourColor.y, ourColor.z, 1.0);
+	//FragColor = vec4(abs(sin(time) * ourColor.x * 0.10), abs(cos(time) * ourColor.y * 0.10), abs(tan(time) * ourColor.z * 0.10), 1.0);
 }

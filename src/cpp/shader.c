@@ -1,6 +1,3 @@
-//
-// Created by Andrue on 5/21/2022.
-//
 #include "shader.h"
 
 // utility function for checking shader compilation/linking errors.
@@ -113,4 +110,8 @@ void shader_set_int(struct Shader *shader, const char *name, int value) {
 // ------------------------------------------------------------------------
 void shader_set_float(struct Shader *shader, const char *name, float value) {
     glUniform1f(glGetUniformLocation(shader->ID, name), value);
+}
+// ------------------------------------------------------------------------
+void shader_set_mat4x4(struct Shader *shader, const char *name, int transpose, Matrix *matrix_ptr) {
+    glUniformMatrix4fv(glGetUniformLocation(shader->ID, name), 1, transpose, matrix_ptr->values);
 }

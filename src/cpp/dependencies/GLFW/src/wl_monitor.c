@@ -1,5 +1,5 @@
 //========================================================================
-// GLFW 3.3 Wayland - www.glfw.org
+// GLFW 3.4 Wayland - www.glfw.org
 //------------------------------------------------------------------------
 // Copyright (c) 2014 Jonas Ådahl <jadahl@gmail.com>
 //
@@ -23,6 +23,8 @@
 //    distribution.
 //
 //========================================================================
+// It is fine to use C99 in this file because it will not be built with VS
+//========================================================================
 
 #include "internal.h"
 
@@ -30,39 +32,40 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+#include <math.h>
+
+#include "wayland-client-protocol.h"
 
 
-static void geometry(void* data,
-                     struct wl_output* output,
-                     int32_t x,
-                     int32_t y,
-                     int32_t physicalWidth,
-                     int32_t physicalHeight,
-                     int32_t subpixel,
-                     const char* make,
-                     const char* model,
-                     int32_t transform)
+static void outputHandleGeometry(void* userData,
+                                 struct wl_output* output,
+                                 int32_t x,
+                                 int32_t y,
+                                 int32_t physicalWidth,
+                                 int32_t physicalHeight,
+                                 int32_t subpixel,
+                                 const char* make,
+                                 const char* model,
+                                 int32_t transform)
 {
-    struct _GLFWmonitor *monitor = data;
-    char name[1024];
+    struct _GLFWmonitor* monitor = userData;
 
     monitor->wl.x = x;
     monitor->wl.y = y;
     monitor->widthMM = physicalWidth;
     monitor->heightMM = physicalHeight;
 
-    snprintf(name, sizeof(name), "%s %s", make, model);
-    monitor->name = strdup(name);
+    snprintf(monitor->name, sizeof(monitor->name), "%s %s", make, model);
 }
 
-static void mode(void* data,
-                 struct wl_output* output,
-                 uint32_t flags,
-                 int32_t width,
-                 int32_t height,
-                 int32_t refresh)
+static void outputHandleMode(void* userData,
+                             struct wl_output* output,
+                             uint32_t flags,
+                             int32_t width,
+                             int32_t height,
+                             int32_t refresh)
 {
-    struct _GLFWmonitor *monitor = data;
+    struct _GLFWmonitor* monitor = userData;
     GLFWvidmode mode;
 
     mode.width = width;
@@ -70,38 +73,47 @@ static void mode(void* data,
     mode.redBits = 8;
     mode.greenBits = 8;
     mode.blueBits = 8;
-    mode.refreshRate = refresh / 1000;
+    mode.refreshRate = (int) round(refresh / 1000.0);
 
     monitor->modeCount++;
     monitor->modes =
-        realloc(monitor->modes, monitor->modeCount * sizeof(GLFWvidmode));
+        _glfw_realloc(monitor->modes, monitor->modeCount * sizeof(GLFWvidmode));
     monitor->modes[monitor->modeCount - 1] = mode;
 
     if (flags & WL_OUTPUT_MODE_CURRENT)
         monitor->wl.currentMode = monitor->modeCount - 1;
 }
 
-static void done(void* data, struct wl_output* output)
+static void outputHandleDone(void* userData, struct wl_output* output)
 {
-    struct _GLFWmonitor *monitor = data;
+    struct _GLFWmonitor* monitor = userData;
+
+    if (monitor->widthMM <= 0 || monitor->heightMM <= 0)
+    {
+        // If Wayland does not provide a physical size, assume the default 96 DPI
+        const GLFWvidmode* mode = &monitor->modes[monitor->wl.currentMode];
+        monitor->widthMM  = (int) (mode->width * 25.4f / 96.f);
+        monitor->heightMM = (int) (mode->height * 25.4f / 96.f);
+    }
 
     _glfwInputMonitor(monitor, GLFW_CONNECTED, _GLFW_INSERT_LAST);
 }
 
-static void scale(void* data,
-                  struct wl_output* output,
-                  int32_t factor)
+static void outputHandleScale(void* userData,
+                              struct wl_output* output,
+                              int32_t factor)
 {
-    struct _GLFWmonitor *monitor = data;
+    struct _GLFWmonitor* monitor = userData;
 
     monitor->wl.scale = factor;
 }
 
-static const struct wl_output_listener outputListener = {
-    geometry,
-    mode,
-    done,
-    scale,
+static const struct wl_output_listener outputListener =
+{
+    outputHandleGeometry,
+    outputHandleMode,
+    outputHandleDone,
+    outputHandleScale,
 };
 
 
@@ -111,8 +123,8 @@ static const struct wl_output_listener outputListener = {
 
 void _glfwAddOutputWayland(uint32_t name, uint32_t version)
 {
-    _GLFWmonitor *monitor;
-    struct wl_output *output;
+    _GLFWmonitor* monitor;
+    struct wl_output* output;
 
     if (version < 2)
     {
@@ -122,7 +134,7 @@ void _glfwAddOutputWayland(uint32_t name, uint32_t version)
     }
 
     // The actual name of this output will be set in the geometry handler.
-    monitor = _glfwAllocMonitor(NULL, 0, 0);
+    monitor = _glfwAllocMonitor("", 0, 0);
 
     output = wl_registry_bind(_glfw.wl.registry,
                               name,
@@ -136,6 +148,7 @@ void _glfwAddOutputWayland(uint32_t name, uint32_t version)
 
     monitor->wl.scale = 1;
     monitor->wl.output = output;
+    monitor->wl.name = name;
 
     wl_output_add_listener(output, &outputListener, monitor);
 }
@@ -145,7 +158,13 @@ void _glfwAddOutputWayland(uint32_t name, uint32_t version)
 //////                       GLFW platform API                      //////
 //////////////////////////////////////////////////////////////////////////
 
-void _glfwPlatformGetMonitorPos(_GLFWmonitor* monitor, int* xpos, int* ypos)
+void _glfwFreeMonitorWayland(_GLFWmonitor* monitor)
+{
+    if (monitor->wl.output)
+        wl_output_destroy(monitor->wl.output);
+}
+
+void _glfwGetMonitorPosWayland(_GLFWmonitor* monitor, int* xpos, int* ypos)
 {
     if (xpos)
         *xpos = monitor->wl.x;
@@ -153,29 +172,51 @@ void _glfwPlatformGetMonitorPos(_GLFWmonitor* monitor, int* xpos, int* ypos)
         *ypos = monitor->wl.y;
 }
 
-GLFWvidmode* _glfwPlatformGetVideoModes(_GLFWmonitor* monitor, int* found)
+void _glfwGetMonitorContentScaleWayland(_GLFWmonitor* monitor,
+                                        float* xscale, float* yscale)
+{
+    if (xscale)
+        *xscale = (float) monitor->wl.scale;
+    if (yscale)
+        *yscale = (float) monitor->wl.scale;
+}
+
+void _glfwGetMonitorWorkareaWayland(_GLFWmonitor* monitor,
+                                    int* xpos, int* ypos,
+                                    int* width, int* height)
+{
+    if (xpos)
+        *xpos = monitor->wl.x;
+    if (ypos)
+        *ypos = monitor->wl.y;
+    if (width)
+        *width = monitor->modes[monitor->wl.currentMode].width;
+    if (height)
+        *height = monitor->modes[monitor->wl.currentMode].height;
+}
+
+GLFWvidmode* _glfwGetVideoModesWayland(_GLFWmonitor* monitor, int* found)
 {
     *found = monitor->modeCount;
     return monitor->modes;
 }
 
-void _glfwPlatformGetVideoMode(_GLFWmonitor* monitor, GLFWvidmode* mode)
+void _glfwGetVideoModeWayland(_GLFWmonitor* monitor, GLFWvidmode* mode)
 {
     *mode = monitor->modes[monitor->wl.currentMode];
 }
 
-void _glfwPlatformGetGammaRamp(_GLFWmonitor* monitor, GLFWgammaramp* ramp)
+GLFWbool _glfwGetGammaRampWayland(_GLFWmonitor* monitor, GLFWgammaramp* ramp)
 {
-    // TODO
-    _glfwInputError(GLFW_PLATFORM_ERROR,
-                    "Wayland: Gamma ramp getting not supported yet");
+    _glfwInputError(GLFW_FEATURE_UNAVAILABLE,
+                    "Wayland: Gamma ramp access is not available");
+    return GLFW_FALSE;
 }
 
-void _glfwPlatformSetGammaRamp(_GLFWmonitor* monitor, const GLFWgammaramp* ramp)
+void _glfwSetGammaRampWayland(_GLFWmonitor* monitor, const GLFWgammaramp* ramp)
 {
-    // TODO
-    _glfwInputError(GLFW_PLATFORM_ERROR,
-                    "Wayland: Gamma ramp setting not supported yet");
+    _glfwInputError(GLFW_FEATURE_UNAVAILABLE,
+                    "Wayland: Gamma ramp access is not available");
 }
 
 

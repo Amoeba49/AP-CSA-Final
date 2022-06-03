@@ -17,6 +17,7 @@ C:/Users/andru/IdeaProjects/GameEngine/src/cpp/cmake-build-debug-visual-studio/d
 C:/Users/andru/IdeaProjects/GameEngine/src/cpp/cmake-build-debug-visual-studio/dependencies/GLFW/CMakeFiles/install.dir
 C:/Users/andru/IdeaProjects/GameEngine/src/cpp/cmake-build-debug-visual-studio/dependencies/GLFW/CMakeFiles/install/local.dir
 C:/Users/andru/IdeaProjects/GameEngine/src/cpp/cmake-build-debug-visual-studio/dependencies/GLFW/src/CMakeFiles/glfw.dir
+C:/Users/andru/IdeaProjects/GameEngine/src/cpp/cmake-build-debug-visual-studio/dependencies/GLFW/src/CMakeFiles/update_mappings.dir
 C:/Users/andru/IdeaProjects/GameEngine/src/cpp/cmake-build-debug-visual-studio/dependencies/GLFW/src/CMakeFiles/edit_cache.dir
 C:/Users/andru/IdeaProjects/GameEngine/src/cpp/cmake-build-debug-visual-studio/dependencies/GLFW/src/CMakeFiles/rebuild_cache.dir
 C:/Users/andru/IdeaProjects/GameEngine/src/cpp/cmake-build-debug-visual-studio/dependencies/GLFW/src/CMakeFiles/list_install_components.dir

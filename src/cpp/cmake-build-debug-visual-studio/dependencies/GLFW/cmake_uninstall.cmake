@@ -1,6 +1,6 @@
 
 if (NOT EXISTS "C:/Users/andru/IdeaProjects/GameEngine/src/cpp/cmake-build-debug-visual-studio/dependencies/GLFW/install_manifest.txt")
-  message(FATAL_ERROR "Cannot find install manifest: \"C:/Users/andru/IdeaProjects/GameEngine/src/cpp/cmake-build-debug-visual-studio/dependencies/GLFW/install_manifest.txt\"")
+    message(FATAL_ERROR "Cannot find install manifest: \"C:/Users/andru/IdeaProjects/GameEngine/src/cpp/cmake-build-debug-visual-studio/dependencies/GLFW/install_manifest.txt\"")
 endif()
 
 file(READ "C:/Users/andru/IdeaProjects/GameEngine/src/cpp/cmake-build-debug-visual-studio/dependencies/GLFW/install_manifest.txt" files)
