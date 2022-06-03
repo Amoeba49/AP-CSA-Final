@@ -27,10 +27,17 @@ float mouseSpeed = 0.075f;
 float deltaTime;
 float lastTime;
 
+Matrix projection;
+Matrix view;
+Matrix model;
+Matrix rotation;
+Matrix scale;
+Matrix translate;
 Vector position;
 Vector direction;
 Vector right;
 Vector up;
+Vector center;
 float horizontalAngle = 3.14f;
 float verticalAngle = 0.0f;
 
@@ -57,11 +64,9 @@ int main() {
 
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     glfwSetCursorPos(window, SCR_WIDTH/2, SCR_HEIGHT/2);
+	glfwSetCursorPosCallback(window, mouse_cursor_callback);
 
-    //if (glfwRawMouseMotionSupported())
-        //glfwSetInputMode(window, GLFW_RAW_MOUSE_MOTION, GLFW_TRUE);
 
-    glfwSetCursorPosCallback(window, mouse_cursor_callback);
 
     // glad: load all OpenGL function pointers
     // ---------------------------------------
@@ -75,66 +80,13 @@ int main() {
     struct Shader shader;
     shader_load(&shader, "C:\\Users\\andru\\IdeaProjects\\GameEngine\\src\\cpp\\shaders\\vertex.glsl", "C:\\Users\\andru\\IdeaProjects\\GameEngine\\src\\cpp\\shaders\\frag.glsl");
 
-    glEnable(GL_CULL_FACE);
-
 	struct Model kirby_model;
 	model_load(&kirby_model, "C:\\Users\\andru\\IdeaProjects\\GameEngine\\src\\cpp\\resources\\models\\kirby_blender.obj");
 
 	struct Model cube_model;
-	model_load(&cube_model, "C:\\Users\\andru\\IdeaProjects\\GameEngine\\src\\cpp\\resources\\models\\cube.obj");
+	model_load(&cube_model, "C:\\Users\\andru\\IdeaProjects\\GameEngine\\src\\cpp\\resources\\models\\mountain.obj");
 
-
-    // Projection matrix setup
-    float radians = 3.1415f / 180.0f;
-    float aspect = 4.0f / 3.0f;
-    float fov = 90.0f;
-    float farClip = 100.0f;
-    float nearClip = 1.0f;
-    float tanHalf = (float)tan(0.5 * (fov * radians));
-    Matrix projection;
-    matrix_create(&projection, 4, 4, COL_MAJOR);
-
-    matrix_set(&projection, 0, 0, 1 / (aspect * tanHalf));
-    matrix_set(&projection, 1, 1, 1 / tanHalf);
-    matrix_set(&projection, 2, 2, farClip / (nearClip - farClip));
-    matrix_set(&projection, 2, 3, -1.0f);
-    matrix_set(&projection, 3, 2, -(farClip * nearClip) / (farClip - nearClip));
-
-
-
-    // View matrix initialization
-    Matrix view;
-    Vector center;
-
-    vector_create(&center, 3, ((float []){0, 0, 0}));
-    center = *vector_add(&position, &direction);
-
-    view = look_at(&position, &center, &up);
-
-
-    // Model matrix initialization
-    Matrix model;
-	Matrix rotation;
-	Matrix scale;
-	Matrix translate;
-    matrix_create(&model, 4, 4, COL_MAJOR);
-	matrix_create(&rotation, 4, 4, COL_MAJOR);
-	matrix_create(&scale, 4, 4, COL_MAJOR);
-	matrix_create(&translate, 4, 4, COL_MAJOR);
-
-    matrix_set(&model, 0, 0, 0.866f);
-    matrix_set(&model, 0, 2, 0.5f);
-    //matrix_set(&model, 0, 3, vector_get(&position, 0));
-    matrix_set(&model, 0, 3, 0.0f);
-    matrix_set(&model, 1, 1, 1.0f);
-    //matrix_set(&model, 1, 3, vector_get(&position, 1));
-    matrix_set(&model, 1, 3, 0.0f);
-    matrix_set(&model, 2, 0, -0.5f);
-    matrix_set(&model, 2, 2, 0.866f);
-    //matrix_set(&model, 2, 3, vector_get(&position, 2));
-    matrix_set(&model, 2, 3, 0.0f);
-    matrix_set(&model, 3, 3, 1.0f);
-
+	glEnable(GL_CULL_FACE);
 
     // load and create a texture
     // -------------------------
@@ -177,7 +129,7 @@ int main() {
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	stbi_set_flip_vertically_on_load(1); // tell stb_image.h to flip loaded texture's on the y-axis.
-	data = stbi_load("C:\\Users\\andru\\IdeaProjects\\GameEngine\\src\\cpp\\resources\\textures\\dd489eac.png", &width, &height, &nrChannels, 0);
+	data = stbi_load("C:\\Users\\andru\\IdeaProjects\\GameEngine\\src\\cpp\\resources\\textures\\GroundForest003_COL_VAR1_3K.jpg", &width, &height, &nrChannels, 0);
 	if (data) {
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
 		glGenerateMipmap(GL_TEXTURE_2D);
@@ -222,8 +174,8 @@ int main() {
         vector_set(&direction, 1, (float)sin(verticalAngle));
         vector_set(&direction, 2, (float)cos(verticalAngle) * cos(horizontalAngle));
 
-        vector_set(&right, 0, sin(horizontalAngle - (90 * radians)));
-        vector_set(&right, 2, cos(horizontalAngle - (90 * radians)));
+        vector_set(&right, 0, sin(horizontalAngle - (3.14f / 2.0f)));
+        vector_set(&right, 2, cos(horizontalAngle - (3.14f / 2.0f)));
 
         vector_normalize(&direction);
         vector_normalize(&right);
@@ -236,33 +188,12 @@ int main() {
 		shader_set_mat4x4(&shader, "projection", GL_FALSE, &projection);
 
 		{
-			// bind textures on corresponding texture units
-			glActiveTexture(GL_TEXTURE0);
-			glBindTexture(GL_TEXTURE_2D, kirby_texture);
-
-			rotation = *matrix_rotate(0.0f, ((frameCount * 0.01) + 0.523599f), 0.0f);
-			scale = *matrix_scale(1.0f, 1.0f, 1.0f);
-			translate = *matrix_translate(0.0f, 0.0f, -5.0f);
-
-			Matrix temp;
-			matrix_create(&temp, 4, 4, COL_MAJOR);
-
-			temp = *matrix_matrix_mul(&translate, &rotation);
-			model = *matrix_matrix_mul(&temp, &scale);
-
-			shader_set_mat4x4(&shader, "model", GL_FALSE, &model);
-
-			glBindVertexArray(kirby_model.VAO);
-			glDrawElements(GL_TRIANGLES, kirby_model.faceCount * 3, GL_UNSIGNED_INT, 0);
-		}
-
-		{
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, cube_texture);
 
-			rotation = *matrix_rotate(0.0f, ((frameCount * 0.01) + 0.523599f), 0.0f);
-			scale = *matrix_scale(0.5f, 0.5f, 0.5f);
-			translate = *matrix_translate(-2.0f, 0.0f, 0.0f);
+			rotation = *matrix_rotate(0.0f, -3.14f / 2.0f, 0.0f);
+			scale = *matrix_scale(10.0f, 10.0f, 10.0f);
+			translate = *matrix_translate(-20.0f, -1.0f, 0.0f);
 
 			Matrix temp;
 			matrix_create(&temp, 4, 4, COL_MAJOR);
@@ -274,6 +205,27 @@ int main() {
 
 			glBindVertexArray(cube_model.VAO);
 			glDrawElements(GL_TRIANGLES, cube_model.faceCount * 3, GL_UNSIGNED_INT, 0);
+		}
+
+		{
+			// bind textures on corresponding texture units
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, kirby_texture);
+
+			rotation = *matrix_rotate(0.0f, ((frameCount * 0.01) + 0.523599f), 0.0f);
+			scale = *matrix_scale(1.0f, 1.0f, 1.0f);
+			translate = *matrix_translate(0.0f, -0.5f, -5.0f);
+
+			Matrix temp;
+			matrix_create(&temp, 4, 4, COL_MAJOR);
+
+			temp = *matrix_matrix_mul(&translate, &rotation);
+			model = *matrix_matrix_mul(&temp, &scale);
+
+			shader_set_mat4x4(&shader, "model", GL_FALSE, &model);
+
+			glBindVertexArray(kirby_model.VAO);
+			glDrawElements(GL_TRIANGLES, kirby_model.faceCount * 3, GL_UNSIGNED_INT, 0);
 		}
 
 
@@ -305,6 +257,32 @@ void glfw_initialization() {
 	vector_normalize(&right);
 
 	up = *vector_cross(&right, &direction);
+
+	// Projection matrix setup
+	float radians = 3.1415f / 180.0f;
+	float aspect = 4.0f / 3.0f;
+	float fov = 90.0f;
+	float farClip = 100.0f;
+	float nearClip = 1.0f;
+	float tanHalf = (float)tan(0.5 * (fov * radians));
+	matrix_create(&projection, 4, 4, COL_MAJOR);
+
+	matrix_set(&projection, 0, 0, 1 / (aspect * tanHalf));
+	matrix_set(&projection, 1, 1, 1 / tanHalf);
+	matrix_set(&projection, 2, 2, farClip / (nearClip - farClip));
+	matrix_set(&projection, 2, 3, -1.0f);
+	matrix_set(&projection, 3, 2, -(farClip * nearClip) / (farClip - nearClip));
+
+	// Model matrix initialization
+	matrix_create(&model, 4, 4, COL_MAJOR);
+	matrix_create(&rotation, 4, 4, COL_MAJOR);
+	matrix_create(&scale, 4, 4, COL_MAJOR);
+	matrix_create(&translate, 4, 4, COL_MAJOR);
+
+	vector_create(&center, 3, ((float[]){0, 0, 0}));
+	center = *vector_add(&position, &direction);
+
+	view = look_at(&position, &center, &up);
 }
 
 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
