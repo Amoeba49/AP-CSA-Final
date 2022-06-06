@@ -32,12 +32,13 @@ void model_load(struct Model *model, char *modelPathInit) {
                     int coordCount = 0;
                     vertCount++;
 
-                    char *coord = "";
+                    char *coord = "\0";
                     int i = 2;
                     int j = 0;
                     while(str[i - 1] != '\n') {
                         if(str[i] == ' ' || str[i] == '\n') {
                             coordCount++;
+							coord[j] = "\0";
                             verts[((vertCount - 1) * 3) + (coordCount - 1)] = atof(coord);
                             memset(coord,0,strlen(coord));
                             j = 0;
@@ -58,12 +59,13 @@ void model_load(struct Model *model, char *modelPathInit) {
                         int coordCount = 0;
                         textCount++;
 
-                        char *coord = "";
+                        char *coord = "\0";
                         int i = 3;
                         int j = 0;
                         while(str[i - 1] != '\n') {
                             if(str[i] == ' ' || str[i] == '\n') {
                                 coordCount++;
+								coord[j] = "\0";
                                 texts[((textCount - 1) * 2) + (coordCount - 1)] = atof(coord);
                                 memset(coord,0,strlen(coord));
                                 j = 0;
@@ -88,18 +90,20 @@ void model_load(struct Model *model, char *modelPathInit) {
                 int indexCount = 0;
                 faceCount++;
 
-                char *index = "";
+                char *index = "\0";
                 int i = 2;
                 int j = 0;
                 while(str[i - 1] != '\n') {
                     if(str[i] == '/') {
                         indexCount++;
+						index[j] = "\0";
                         faces[((faceCount - 1) * 6) + (indexCount - 1)] = atoi(index);
                         memset(index,0,strlen(index));
                         j = 0;
                     }
                     else if(str[i] == ' ' || str[i] == '\n') {
                         indexCount++;
+						index[j] = "\0";
                         faces[((faceCount - 1) * 6) + (indexCount - 1)] = atoi(index);
                         memset(index,0,strlen(index));
                         j = 0;
@@ -163,8 +167,14 @@ void model_load(struct Model *model, char *modelPathInit) {
         vertices[j+1] = verts[k+1];
         vertices[j+2] = verts[k+2];
         if(textCount > 0) {
-            vertices[j + 3] = texts[(correspondence[i + 1] - 1) * 2];
-            vertices[j + 4] = texts[((correspondence[i + 1] - 1) * 2) + 1];
+			if((correspondence[i + 1] - 1) < 0) {
+				vertices[j + 3] = 0.0f;
+				vertices[j + 4] = 0.0f;
+			}
+			else {
+				vertices[j + 3] = texts[(correspondence[i + 1] - 1) * 2];
+				vertices[j + 4] = texts[((correspondence[i + 1] - 1) * 2) + 1];
+			}
             j += 5;
             k += 3;
         }

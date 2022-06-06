@@ -50,6 +50,7 @@ int main() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_DEPTH_BITS, 24);
 
     // glfw window creation
     // --------------------
@@ -84,9 +85,13 @@ int main() {
 	model_load(&kirby_model, "C:\\Users\\andru\\IdeaProjects\\GameEngine\\src\\cpp\\resources\\models\\kirby_blender.obj");
 
 	struct Model cube_model;
-	model_load(&cube_model, "C:\\Users\\andru\\IdeaProjects\\GameEngine\\src\\cpp\\resources\\models\\mountain.obj");
+	model_load(&cube_model, "C:\\Users\\andru\\IdeaProjects\\GameEngine\\src\\cpp\\resources\\models\\cube.obj");
 
 	glEnable(GL_CULL_FACE);
+	glDepthMask(GL_TRUE);
+	glDepthFunc(GL_LEQUAL);
+	glDepthRange(0.0f, 1.0f);
+	glEnable(GL_DEPTH_TEST);
 
     // load and create a texture
     // -------------------------
@@ -129,9 +134,9 @@ int main() {
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	stbi_set_flip_vertically_on_load(1); // tell stb_image.h to flip loaded texture's on the y-axis.
-	data = stbi_load("C:\\Users\\andru\\IdeaProjects\\GameEngine\\src\\cpp\\resources\\textures\\GroundForest003_COL_VAR1_3K.jpg", &width, &height, &nrChannels, 0);
+	data = stbi_load("C:\\Users\\andru\\IdeaProjects\\GameEngine\\src\\cpp\\resources\\textures\\color_grid.png", &width, &height, &nrChannels, 0);
 	if (data) {
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 		glGenerateMipmap(GL_TEXTURE_2D);
 	}
 	else {
@@ -158,7 +163,8 @@ int main() {
         // render
         // ------
         glClearColor(0.25f, 0.25f, 0.25f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+		glClearDepth(1.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		
 
         // render container
@@ -184,15 +190,15 @@ int main() {
         center = *vector_add(&position, &direction);
         view = look_at(&position, &center, &up);
 
-		shader_set_mat4x4(&shader, "view", GL_FALSE, &view);
-		shader_set_mat4x4(&shader, "projection", GL_FALSE, &projection);
-
 		{
+			shader_set_mat4x4(&shader, "view", GL_FALSE, &view);
+			shader_set_mat4x4(&shader, "projection", GL_FALSE, &projection);
+
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, cube_texture);
 
 			rotation = *matrix_rotate(0.0f, -3.14f / 2.0f, 0.0f);
-			scale = *matrix_scale(10.0f, 10.0f, 10.0f);
+			scale = *matrix_scale(1.0f, 1.0f, 1.0f);
 			translate = *matrix_translate(-20.0f, -1.0f, 0.0f);
 
 			Matrix temp;
@@ -208,6 +214,9 @@ int main() {
 		}
 
 		{
+			shader_set_mat4x4(&shader, "view", GL_FALSE, &view);
+			shader_set_mat4x4(&shader, "projection", GL_FALSE, &projection);
+
 			// bind textures on corresponding texture units
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, kirby_texture);
@@ -265,13 +274,13 @@ void glfw_initialization() {
 	float farClip = 100.0f;
 	float nearClip = 1.0f;
 	float tanHalf = (float)tan(0.5 * (fov * radians));
-	matrix_create(&projection, 4, 4, COL_MAJOR);
+	matrix_create(&projection, 4, 4, ROW_MAJOR);
 
-	matrix_set(&projection, 0, 0, 1 / (aspect * tanHalf));
-	matrix_set(&projection, 1, 1, 1 / tanHalf);
-	matrix_set(&projection, 2, 2, farClip / (nearClip - farClip));
-	matrix_set(&projection, 2, 3, -1.0f);
-	matrix_set(&projection, 3, 2, -(farClip * nearClip) / (farClip - nearClip));
+	matrix_set(&projection, 0, 0, 1 / tanHalf);
+	matrix_set(&projection, 1, 1, aspect / tanHalf);
+	matrix_set(&projection, 2, 2, -(farClip + nearClip) / (farClip - nearClip));
+	matrix_set(&projection, 2, 3, -(2 * farClip * nearClip) / (farClip - nearClip));
+	matrix_set(&projection, 3, 2, -1.0f);
 
 	// Model matrix initialization
 	matrix_create(&model, 4, 4, COL_MAJOR);
